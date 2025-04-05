@@ -42,7 +42,7 @@ export default function HistoryBoard({ messages }: { messages?: Message[] }) {
   }, [messages]);
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex flex-1 flex-col">
       <div className="border-b px-4 py-3">
         <h2 className="text-xl font-semibold">History</h2>
       </div>
@@ -54,7 +54,7 @@ export default function HistoryBoard({ messages }: { messages?: Message[] }) {
           ))}
         </ScrollArea>
       ) : (
-        <div className="text-muted-foreground flex h-full items-center justify-center">
+        <div className="text-muted-foreground flex flex-1 items-center justify-center">
           No history available yet.
         </div>
       )}

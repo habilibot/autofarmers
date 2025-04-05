@@ -186,7 +186,7 @@ export default function Home() {
             </>
           )}
         </Card>
-        <Card className="flex grow flex-col">
+        <Card className="flex grow flex-col overflow-y-auto">
           <HistoryBoard messages={messages} />
         </Card>
       </div>
