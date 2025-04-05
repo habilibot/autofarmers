@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { useGetAgentsInfo, useRunAgents } from '@/hooks/runtime';
 import HistoryBoard from '@/components/HistoryBoard';
 import QRCodeComponent from '@/components/QRComponent';
-import { CheckIcon, ClipboardCopyIcon } from 'lucide-react';
+import { CheckIcon, ClipboardCopyIcon, MessagesSquare } from 'lucide-react';
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -75,17 +75,8 @@ export default function Home() {
         <Link href="/">
           <Image priority alt="Logo" src="/logo.png" width={46} height={45} />
         </Link>
-        <div className="flex flex-col gap-4 overflow-x-auto">
-          {Object.values(agentsInfo).map((agent, i) => {
-            return (
-              <AgentProfile
-                key={`agent-side-${i}`}
-                size="lg"
-                profileImage={agent.profileImage}
-                state={agent.state}
-              />
-            );
-          })}
+        <div className="rounded-full bg-violet-300 p-2">
+          <MessagesSquare className="text-muted" size={44} />
         </div>
       </Card>
 
