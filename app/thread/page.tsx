@@ -146,8 +146,8 @@ export default function Home() {
       </Card>
 
       {/* History Board */}
-      <div className="flex max-w-md flex-1 flex-col gap-2">
-        <Card className="flex flex-row">
+      <Card className="flex max-w-md flex-1 flex-col gap-2">
+        <div className="flex flex-row border-b border-gray-200">
           {publicKey && (
             <>
               <div className="flex">
@@ -176,11 +176,9 @@ export default function Home() {
               </div>
             </>
           )}
-        </Card>
-        <Card className="flex grow flex-col overflow-y-auto">
-          <HistoryBoard messages={messages} />
-        </Card>
-      </div>
+        </div>
+        <HistoryBoard messages={messages} />
+      </Card>
     </div>
   );
 }

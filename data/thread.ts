@@ -15,6 +15,7 @@ export const messageSchema = z.object({
   id: z.number(),
   content: z.string(),
   sender: z.string(),
+  createdAt: z.number().optional(),
   toolCalls: z.array(
     z.object({
       name: z.string(),

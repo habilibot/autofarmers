@@ -43,6 +43,7 @@ export async function GET(
 
       const record: Message = {
         ...omit(m, ['toolCallsList']),
+        createdAt: m.createdAt?.seconds,
         toolCalls,
         metadata: {},
       };
@@ -52,10 +53,8 @@ export async function GET(
           [
             'TRADE',
             'TOKEN_BALANCE_ACTION',
-            'GET_COINGECKO_TRENDING_POOLS_ACTION',
             'FETCH_TOP_LIST_LIQUIDITY_POOLS',
             'OPEN_ORCA_POSITION_WITH_LIQUIDITY',
-            'FETCH_ORCA_POSITIONS_ACTION',
           ].includes(toolCall.name)
         ) {
           if (!toolCall.result || !toolCall.result.result) {
@@ -101,11 +100,6 @@ export async function GET(
                   ...toolCall.arguments,
                   ...data,
                 });
-              }
-              break;
-            case 'FETCH_ORCA_POSITIONS_ACTION':
-              {
-                // TODO: add liquidPoolPositionsSchema
               }
               break;
           }
