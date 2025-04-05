@@ -113,11 +113,12 @@ export default function Home() {
         {messages && (
           <div className="flex grow flex-col gap-4 overflow-y-auto pr-10 pl-6">
             {messages.map((message, i) => {
-              const agentInfo = agentsInfo[message.sender.toLowerCase()];
-              if (!agentInfo) {
-                return null;
-              }
+              console.log('message :::', message);
               if (message.sender !== 'USER') {
+                const agentInfo = agentsInfo[message.sender.toLowerCase()];
+                if (!agentInfo) {
+                  return null;
+                }
                 return (
                   <AgentChatBubble
                     key={`chat-agent-message-${i}`}
