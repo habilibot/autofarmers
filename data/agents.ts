@@ -6,3 +6,5 @@ export const agentSchema = z.object({
   profileImage: z.string(),
   state: z.string(), // 'idle' | 'working' | 'waiting'
 });
+
+export const agentsInfoSchema = z.record(z.string(), agentSchema);

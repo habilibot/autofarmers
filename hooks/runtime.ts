@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { agentSchema } from '@/data/agents';
+import { agentsInfoSchema } from '@/data/agents';
 import { z } from 'zod';
 
 export function useGetAgentsInfo() {
@@ -13,7 +13,8 @@ export function useGetAgentsInfo() {
       if (!response.ok) {
         throw new Error('Failed to fetch agents info');
       }
-      return z.record(z.string(), agentSchema).parse(await response.json());
+      const data = await response.json();
+      return data as z.infer<typeof agentsInfoSchema>;
     },
   });
 }
